@@ -2,6 +2,9 @@ package com.reactnativefileloggertest;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.SystemClock;
+import android.util.Log;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -45,6 +48,15 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+    new Thread(() -> {
+        int counter = 0;
+        while(true) {
+            counter ++;
+            Log.d("Brian", "log from native counter=" + counter);
+            SystemClock.sleep(1000);
+        }
+    }).start();
   }
 
   /**

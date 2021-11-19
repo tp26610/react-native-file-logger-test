@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -58,6 +58,16 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    let counter = 0;
+    const timerId = setInterval(() => {
+      console.log('log from React Native counter=' + counter++);
+    }, 1000);
+    return () => {
+      clearInterval(timerId);
+    };
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
