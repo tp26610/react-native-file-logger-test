@@ -5212,6 +5212,11 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-file-logger@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-file-logger/-/react-native-file-logger-0.2.1.tgz#dea99cc343ce03872b704e31d8546d81657a07d9"
+  integrity sha512-raLYGfVHrhEuNKvZA0CWsY+FnswoVKXbnV2dVz+7LWR2NuTPEX8ukYssWfWFGUSK98kfHvM6SM14Nh/RjT+6HA==
+
 react-native@0.66.3:
   version "0.66.3"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.66.3.tgz#25c7c4c7d81867326b3eb7a36f0fe6a61fa4104e"
