@@ -26,6 +26,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {FileLogger, LogLevel} from 'react-native-file-logger';
+
+FileLogger.configure({
+  maximumFileSize: 500, // bytes
+  maximumNumberOfFiles: 5,
+  dailyRolling: false,
+}).then(() => {
+  FileLogger.setLogLevel(LogLevel.DEBUG);
+});
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -63,6 +73,9 @@ const App: () => Node = () => {
     let counter = 0;
     const timerId = setInterval(() => {
       console.log('log from React Native counter=' + counter++);
+      // FileLogger.getLogFilePaths().then(paths => {
+      //   console.log('FileLogger.getLogFilePaths() >> paths=', paths);
+      // });
     }, 1000);
     return () => {
       clearInterval(timerId);

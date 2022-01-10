@@ -5,12 +5,17 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.util.Log;
 
+import org.slf4j.LoggerFactory;
+
+import com.betomorrow.rnfilelogger.FileLoggerModule;
+import com.betomorrow.rnfilelogger.FileLoggerPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -48,15 +53,17 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
-
-    new Thread(() -> {
-        int counter = 0;
-        while(true) {
-            counter ++;
-            Log.d("Brian", "log from native counter=" + counter);
-            SystemClock.sleep(1000);
-        }
-    }).start();
+//    new Thread(() -> {
+//        int counter = 0;
+//        while(true) {
+//            LoggerFactory.getLogger("ReactNativeJS").debug("log from native counter=" + counter++);
+//            SystemClock.sleep(1000);
+//            FileLoggerModule module = FileLoggerPackage.getFileLoggerModule();
+//            if (module != null) {
+//                module.write(1, "log from native counter=" + counter);
+//            }
+//        }
+//    }).start();
   }
 
   /**
