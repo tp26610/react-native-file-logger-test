@@ -2,13 +2,7 @@ package com.reactnativefileloggertest;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.SystemClock;
-import android.util.Log;
 
-import org.slf4j.LoggerFactory;
-
-import com.betomorrow.rnfilelogger.FileLoggerModule;
-import com.betomorrow.rnfilelogger.FileLoggerPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
